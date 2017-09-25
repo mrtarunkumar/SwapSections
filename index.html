@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en" class="">
+
+<head>
+    <meta charset="utf-8">
+    <title>MENU POSITION</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="site-header__wrap">
+            <div class="header-logo">
+                <p>LOGO</p>
+            </div>
+        </div>
+        <button class="btn main-nav__toggle js-main-nav__toggle" data-hook="comp-header-mobileNav-toggle">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span class="visuallyhidden">Navigation</span>
+				</button>
+        <nav class="main-nav js-main-nav">
+            <ul class="main-nav__list" data-hook="comp-header-nav">
+                <li class="main-nav__item"><a class="main-nav__link " data-hook="comp-header-nav-creditCards" href="#">Credit Cards</a></li>
+                <li class="main-nav__item"><a class="main-nav__link " data-hook="comp-header-nav-loans" href="#">Loans</a></li>
+                <li class="main-nav__item"><a class="main-nav__link " data-hook="comp-header-nav-mortgages" href="#">Mortgages</a></li>
+                <li class="main-nav__item"><a class="main-nav__link " data-hook="comp-header-nav-energy" href="#">Energy</a></li>
+                <li class="main-nav__item"><a class="main-nav__link " data-hook="comp-header-nav-insurance" href="#">Insurance</a></li>
+                <li class="main-nav__item main-nav__item--user main-nav__item--is-auth">
+                    <a class="main-nav__link--account" data-hook="comp-header-nav-account" href="#">My account</a>
+                    <a class="main-nav__link main-nav__link--login js-user-nav--logout" data-hook="comp-header-nav-logout" href="#">Log out</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="main-content">
+            <section class="hero hero--home">
+                <div class="hero_accordion">
+                    <div class="c-productSearchAccordion js-productSearchAccordion" data-hook="comp-searchWidget-accordion">
+                        <div class="c-accordion" data-hook="productSearch_tab-0" role="tablist">
+                            <div class="c-accordion_title c-productSearchAccordion_title">
+                                TOP SECTION - 1
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <header class="hero_content">
+                    <div class="hero_score-information">
+                        <div class="hero_product-search">
+                            <div class="hero_product-search_tabs">
+                                TOP SECTION - 2
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            </section>
+            <section class="prod1-upgrade">
+                <p class="prod1-upgrade__title">MID Section</p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>FOOTER</p>
+    </footer>
+
+
+
+    <style>
+        /*RESET*/
+        
+        body {
+            color: #535353;
+            font-size: 16px;
+            font-family: verdana;
+        }
+        
+        li {
+            list-style: none;
+        }
+        /*RESET*/
+        
+        .main-nav__item {
+            border-bottom: none;
+        }
+        
+        .hiddenSubMenu {
+            display: none;
+        }
+        
+        @media (min-width: 400px) {
+            .s-hide-400 {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .hide-400 {
+                display: none;
+            }
+        }
+        
+        @media (min-width: 500px) {
+            .s-hide-500 {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 500px) {
+            .hide-500 {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 650px) {
+            .hide-650 {
+                display: none;
+            }
+        }
+        
+        @media (min-width: 800px) {
+            .s-hide-800 {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 800px) {
+            .hide-800 {
+                display: none;
+            }
+        }
+        
+        @media (min-width: 801px) {
+            .hide-801 {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 60rem) {
+            .has-js .main-nav {
+                display: block;
+            }
+            .main-nav__list {
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                margin: 0 auto;
+                max-width: 66.25rem;
+                width: 96%;
+                font-size: 80%;
+            }
+            .main-nav__link {
+                padding: 10px
+            }
+            .main-nav__list_subMenu {
+                display: block;
+            }
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function(e) {
+
+            // ############################################################
+            // set variables            
+            let heroContent = document.getElementsByClassName('hero_content')[0];
+            let heroAccordion = document.getElementsByClassName('hero hero--home')[0];
+            let prod1Upgrade = document.getElementsByClassName('prod1-upgrade')[0];
+            let navBtn = document.getElementsByClassName('main-nav__toggle')[0];
+            let navList = document.getElementsByClassName('main-nav__list')[0];
+
+            let navListEnergy = navList.querySelector("[data-hook='comp-header-nav-energy']");
+            let navListInsurance = navList.querySelector("[data-hook='comp-header-nav-insurance']");
+            let navListMyAccount = navList.querySelector("[data-hook='comp-header-nav-account']");
+            let navLogOut = navList.querySelector("[data-hook='comp-header-nav-logout']");
+
+            let mainNav = document.getElementsByClassName('js-main-nav')[0];
+
+            // remove burger menu
+            navBtn.remove();
+
+            // hide menu items
+            navListEnergy.parentElement.classList.add("hide-400");
+            navListInsurance.parentElement.classList.add("hide-500");
+            navListMyAccount.parentElement.classList.add("hide-650");
+            navLogOut.parentElement.classList.add("hide-800");
+
+            //swap sections (section 1 and section 2)
+            heroAccordion.before(heroContent); // move and insert hero content before hero accordian
+            heroAccordion.style.border = "1px solid #a89191";
+            heroAccordion.style.paddingBottom = "16px";
+            prod1Upgrade.style.border = "1px solid #9cb9ac";
+            prod1Upgrade.style.marginTop = "10px";
+
+            // more nav list item
+            let navListMore = document.createElement('li');
+            navListMore.classList.add('main-nav__item', 'hide-801');
+            navListMore.innerHTML = "<a class='main-nav__link' href='/'>More..</a>";
+            navListMyAccount.parentElement.insertAdjacentElement('beforebegin', navListMore);
+            navListMore.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log("clicked..");
+                newNav.classList.toggle('hiddenSubMenu');
+            });
+
+
+            // build sub nav menu
+            let newNav = document.createElement('nav');
+            newNav.classList.add('hiddenSubMenu');
+            let innerMenu = '<ul class="main-nav__list_subMenu" data-hook="comp-header-nav"><li class="main-nav__item"><a class="s-hide-400 main-nav__link" data-hook="comp-header-nav-energy" href="#">Energy</a></li><li class="main-nav__item"><a class="s-hide-500 main-nav__link" data-hook="comp-header-nav-insurance" href="#">Insurance</a></li><li class="main-nav__item main-nav__item--user main-nav__item--is-auth"><a class="s-hide-800 main-nav__link--account btn btn--b" data-hook="comp-header-nav-account" href="/account">My account</a><a class="s-hide-800 main-nav__link main-nav__link--login js-user-nav--logout" data-hook="comp-header-nav-logout" href="#">Log out</a></li></ul>';
+            newNav.innerHTML = innerMenu;
+
+
+            // insert sub nav menu
+            mainNav.insertAdjacentElement('afterend', newNav);
+
+        });
+    </script>
+</body>
+
+</html>
